@@ -1,9 +1,16 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View,FlatList, TouchableOpacity,Image } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  TouchableOpacity,
+  Image,
+} from "react-native";
 import * as Animatable from "react-native-animatable";
-import { useNavigation } from '@react-navigation/core';
+import { useNavigation } from "@react-navigation/core";
 const UserTypes = () => {
-    const navigation=useNavigation()
+  const navigation = useNavigation();
   const [data, setData] = useState([
     {
       id: 1,
@@ -11,7 +18,7 @@ const UserTypes = () => {
       imageBackgroundColor: "red",
       backgroundColor: "#FF7F7F",
       image: require("../assets/images/student.png"),
-      screen:"Student"
+      screen: "Student",
     },
     {
       id: 2,
@@ -19,7 +26,7 @@ const UserTypes = () => {
       imageBackgroundColor: "yellow",
       backgroundColor: "#F7F1AF",
       image: require("../assets/images/busDriver.png"),
-      screen:"BusDriver"
+      screen: "BusDriver",
     },
     {
       id: 3,
@@ -27,7 +34,7 @@ const UserTypes = () => {
       imageBackgroundColor: "midnightblue",
       backgroundColor: "#B3CCF5",
       image: require("../assets/images/busMonitor.png"),
-      screen:"BusMonitor"
+      screen: "BusMonitor",
     },
     {
       id: 4,
@@ -39,31 +46,40 @@ const UserTypes = () => {
   ]);
   return (
     <FlatList
-    numColumns={2}
+      numColumns={2}
       data={data}
       keyExtractor={(item) => item.id}
       renderItem={({ item }) => (
         <Animatable.View animation="fadeIn" easing="ease-in" delay={2000}>
           <TouchableOpacity
-onPress={()=>navigation.navigate(item.screen)}
+            onPress={() => navigation.navigate(item.screen)}
             style={{
-        
-              width:150,
+              width: 150,
               backgroundColor: item.backgroundColor,
-              borderRadius:20,
-              alignItems:"center",
+              borderRadius: 20,
+              alignItems: "center",
               justifyContent: "center",
-             margin:15,
-             padding:15
+              margin: 15,
+              padding: 15,
             }}
           >
-          
-            <View style={{backgroundColor:item.imageBackgroundColor,borderRadius:50,padding:10,alignItems: 'center',justifyContent: 'center'}}>
+            <View
+              style={{
+                backgroundColor: item.imageBackgroundColor,
+                borderRadius: 50,
+                padding: 10,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
               <Image source={item.image} style={{ height: 50, width: 50 }} />
             </View>
-            <View style={{flexDirection:"row"}}>
-            <Text style={{fontWeight:"bold"}}>{item.title}</Text>
-            <Image source={require('../assets/images/tutLogo.png')} style={{height:20,width:20}}/>
+            <View style={{ flexDirection: "row" }}>
+              <Text style={{ fontWeight: "bold" }}>{item.title}</Text>
+              <Image
+                source={require("../assets/images/tutLogo.png")}
+                style={{ height: 20, width: 20 }}
+              />
             </View>
           </TouchableOpacity>
         </Animatable.View>

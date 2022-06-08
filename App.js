@@ -6,6 +6,8 @@ import LandingScreen from './screens/LandingScreen';
 import StudentScreen from './screens/StudentScreen';
 import BusDriverScreen from './screens/BusDriverScreen';
 import BusMonitorScreen from './screens/BusMonitorScreen';
+import StudentHomeScreen from './screens/StudentHomeScreen';
+import BusDriverHomeScreen from './screens/BusDriverHomeScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,6 +20,8 @@ export default function App() {
         <Stack.Screen name="Student" component={StudentScreen} />
         <Stack.Screen name="BusDriver" component={BusDriverScreen} />
         <Stack.Screen name="BusMonitor" component={BusMonitorScreen} />
+        <Stack.Screen name="StudentHomeScreen" component={StudentHomeScreen} />
+        <Stack.Screen name="BusDriverHomeScreen" component={BusDriverHomeScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
